@@ -27,7 +27,6 @@ export class UnitPaymentOrderItem {
       }
     }
     this.filter = {
-            DivisionId: this.filterUPO.DivisionId,
             SupplierId: this.filterUPO.SupplierId ,
             CategoryId: this.filterUPO.CategoryId,
             PaymentMethod: this.filterUPO.PaymentMethod,
@@ -50,7 +49,7 @@ export class UnitPaymentOrderItem {
     } else if (newValue._id) {
       var items = [];
       for (var item of newValue.items) {
-        if(item.incomeTaxBy==this.filterUPO.incomeTaxBy && item.categoryCode==this.filterUPO.CategoryCode){
+        if((!this.filterUPO.UseIncomeTax || item.incomeTaxBy==this.filterUPO.incomeTaxBy) && item.categoryCode==this.filterUPO.CategoryCode){
           item.URNItemId = item._id;
 
           delete item._id;

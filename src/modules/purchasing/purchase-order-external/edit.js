@@ -32,6 +32,13 @@ export class Edit {
     }
 
     save(event) {
+        this.data.unit = {
+            _id: "0",
+            code: "-",
+            name: "-",
+            Name: "-"
+        };
+
         if(this.data.items){
             for(var item of this.data.items){
                 if(!item.poId || item.poId==0){
@@ -45,7 +52,6 @@ export class Edit {
                             delete detail.Id;
                         }
                 }
-                item.unit=this.data.unit;
             }
         }
 

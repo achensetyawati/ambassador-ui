@@ -20,9 +20,6 @@ export class View {
         const decoded = Base64Helper.decode(params.id);
         var id = decoded;
         this.data = await this.service.getById(id);
-        if (this.data.division) {
-            this.selectedDivision = this.data.division;
-        }
         if (this.data.supplier) {
             this.selectedSupplier = this.data.supplier;
         }
